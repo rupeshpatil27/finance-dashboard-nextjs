@@ -4,7 +4,7 @@ const DashboardLayout = ({ children }) => {
   return (
     <>
       <Header />
-      <main className="px-3 lg:px-14">sas{children}</main>
+      <main className="px-3 lg:px-14">{children}</main>
     </>
   );
 };

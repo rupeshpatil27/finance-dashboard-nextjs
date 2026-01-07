@@ -54,9 +54,10 @@ const Navigation = () => {
           </Button>
         </SheetTrigger>
         <SheetContent side="left" className="px-2">
-          <nav className="flex flex-col gap-y-2 pt-6">
+          <nav className="flex flex-col gap-y-2 pt-6 mt-5">
             {routes.map((route) => (
               <Button
+                key={route.href}
                 variant={route.href === pathName ? "secondary" : "ghost"}
                 onClick={() => onClick(route.href)}
                 className="w-full justify-start"
