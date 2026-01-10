@@ -1,11 +1,11 @@
 "use client";
-import { usePathname, useRouter } from "next/navigation";
-import NavButton from "./NavButton";
+import { Menu } from "lucide-react";
 import { useState } from "react";
+import { usePathname, useRouter } from "next/navigation";
 import { useMedia } from "react-use";
 import { Sheet, SheetContent, SheetTrigger } from "./ui/sheet";
 import { Button } from "./ui/button";
-import { Menu } from "lucide-react";
+import NavButton from "./NavButton";
 
 const routes = [
   {

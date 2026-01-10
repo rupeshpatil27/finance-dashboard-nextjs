@@ -1,3 +1,5 @@
+import { Trash } from "lucide-react";
+import { zodResolver } from "@hookform/resolvers/zod";
 import {
   Form,
   FormControl,
@@ -5,12 +7,10 @@ import {
   FormItem,
   FormLabel,
 } from "@/components/ui/form";
-import { insertAccountSchema } from "@/db/schema";
 import { useForm } from "react-hook-form";
-import { zodResolver } from "@hookform/resolvers/zod";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
-import { Trash } from "lucide-react";
+import { insertAccountSchema } from "@/db/schema";
 
 const formSchema = insertAccountSchema.pick({
   name: true,
@@ -23,7 +23,7 @@ const AccountForm = ({ id, defaultValues, onSubmit, onDelete, disabled }) => {
   });
 
   const handleSubmit = (values) => {
-    console.log(values);
+    onSubmit(values);
   };
 
   const handleDelete = (values) => {

@@ -1,9 +1,11 @@
-import { accounts, insertAccountSchema } from "@/db/schema";
-import { clerkMiddleware, getAuth } from "@hono/clerk-auth";
-import { eq } from "drizzle-orm";
+import { createId } from "@paralleldrive/cuid2";
 import { Hono } from "hono";
 import { zValidator } from "@hono/zod-validator";
-import { createId } from "@paralleldrive/cuid2";
+import { clerkMiddleware, getAuth } from "@hono/clerk-auth";
+import { eq } from "drizzle-orm";
+
+import { accounts, insertAccountSchema } from "@/db/schema";
+import { db } from "@/db/drizzle";
 
 const app = new Hono()
   .get("/", clerkMiddleware(), async (c) => {
