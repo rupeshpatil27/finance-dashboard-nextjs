@@ -2,8 +2,8 @@
 
 import { ArrowUpDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { Checkbox } from "@/components/ui/checkbox"
-
+import { Checkbox } from "@/components/ui/checkbox";
+import { Actions } from "./actions";
 
 export const columns = [
   {
@@ -40,5 +40,9 @@ export const columns = [
         </Button>
       );
     },
-  }
+  },
+  {
+    id: "actions",
+    cell: ({ row }) => <Actions id={row.original.id} />,
+  },
 ];
