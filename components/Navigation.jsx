@@ -3,7 +3,13 @@ import { Menu } from "lucide-react";
 import { useState } from "react";
 import { usePathname, useRouter } from "next/navigation";
 import { useMedia } from "react-use";
-import { Sheet, SheetContent, SheetTrigger } from "./ui/sheet";
+import {
+  Sheet,
+  SheetContent,
+  SheetHeader,
+  SheetTitle,
+  SheetTrigger,
+} from "./ui/sheet";
 import { Button } from "./ui/button";
 import NavButton from "./NavButton";
 
@@ -54,6 +60,9 @@ const Navigation = () => {
           </Button>
         </SheetTrigger>
         <SheetContent side="left" className="px-2">
+          <SheetHeader>
+            <SheetTitle className="sr-only">Menu</SheetTitle>
+          </SheetHeader>
           <nav className="flex flex-col gap-y-2 pt-6 mt-5">
             {routes.map((route) => (
               <Button

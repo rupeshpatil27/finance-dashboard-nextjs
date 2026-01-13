@@ -8,6 +8,13 @@
       "when": 1767810182033,
       "tag": "0000_faithful_piledriver",
       "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "5",
+      "when": 1768071676388,
+      "tag": "0001_black_stryfe",
+      "breakpoints": true
     }
   ]
 }

@@ -21,7 +21,14 @@ import {
 import { Button } from "./ui/button";
 import { Input } from "./ui/input";
 
+import { useConfirm } from "@/hooks/use-confirm";
+
 export function DataTable({ columns, data, filterKey, onDelete, disabled }) {
+  const [ConfirmationDialog, confirm] = useConfirm(
+    "Are you sure?",
+    "You are about to perform a bulk delete."
+  );
+
   const [sorting, setSorting] = React.useState([]);
   const [columnFilters, setColumnFilters] = React.useState([]);
   const [rowSelection, setRowSelection] = React.useState({});
@@ -44,6 +51,7 @@ export function DataTable({ columns, data, filterKey, onDelete, disabled }) {
 
   return (
     <div>
+      <ConfirmationDialog />
       <div className="flex items-center py-4">
         <Input
           placeholder={`Filter ${filterKey}...`}
@@ -59,6 +67,14 @@ export function DataTable({ columns, data, filterKey, onDelete, disabled }) {
             size="sm"
             variant="outline"
             className="ml-auto font-normal text-xs"
+            onClick={async () => {
+              const ok = await confirm();
+
+              if (ok) {
+                onDelete(table.getFilteredSelectedRowModel().rows);
+                table.resetRowSelection();
+              }
+            }}
           >
             <Trash className="size-4 mr-2" />
             Delete ({table.getFilteredSelectedRowModel().rows.length})
