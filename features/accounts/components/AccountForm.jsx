@@ -26,7 +26,7 @@ const AccountForm = ({ id, defaultValues, onSubmit, onDelete, disabled }) => {
     onSubmit(values);
   };
 
-  const handleDelete = (values) => {
+  const handleDelete = () => {
     onDelete?.();
   };
   return (
