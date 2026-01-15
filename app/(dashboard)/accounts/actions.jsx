@@ -15,7 +15,7 @@ import { useConfirm } from "@/hooks/use-confirm";
 export const Actions = ({ id }) => {
   const [ConfirmDialog, confirm] = useConfirm(
     "Are you sure?",
-    "You are about to delete this transaction."
+    "You are about to delete this account."
   );
 
   const deleteMutation = useDeleteAccount(id);
