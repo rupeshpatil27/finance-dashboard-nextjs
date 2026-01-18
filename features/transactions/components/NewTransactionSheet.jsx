@@ -63,7 +63,7 @@ export const NewTransactionSheet = () => {
       },
     });
   };
-
+ 
   return (
     <Sheet open={isOpen} onOpenChange={onClose}>
       <SheetContent className="space-y-4">
@@ -84,6 +84,7 @@ export const NewTransactionSheet = () => {
             onCreateCategory={onCreateCategory}
             accountOptions={accountOptions}
             onCreateAccount={onCreateAccount}
+            defaultValues = {{ payee: "" }}
           />
         )}
       </SheetContent>
