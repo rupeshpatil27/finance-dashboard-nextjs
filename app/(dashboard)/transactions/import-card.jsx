@@ -14,6 +14,25 @@ export const ImportCard = ({ data, onCancel, onSubmit }) => {
   const headers = data[0];
   const body = data.slice(1);
 
+  const onTableHeadSelectChange = (columnIndex, value) => {
+    setSelectedColumns((prev) => {
+      const newSelectedColums = { ...prev };
+
+      for (const key in newSelectedColums) {
+        if (newSelectedColums[key] === value) {
+          newSelectedColums[key] = null;
+        }
+      }
+
+      if (value === "skip") {
+        value = null;
+      }
+
+      newSelectedColums[`column_${columnIndex}`] = value;
+      return newSelectedColums;
+    });
+  };
+
   return (
     <div className="max-w-screen-2xl mx-auto w-full pb-10 -mt-24">
       <Card className="border-none drop-shadow-sm">
@@ -32,7 +51,7 @@ export const ImportCard = ({ data, onCancel, onSubmit }) => {
             headers={headers}
             body={body}
             selectedColumns={selectedColumns}
-            onTableHeadSelectChange={() => {}}
+            onTableHeadSelectChange={onTableHeadSelectChange}
           />
         </CardContent>
       </Card>
