@@ -7,7 +7,7 @@ import {
 } from "@/components/ui/select";
 import { cn } from "@/lib/utils";
 
-const options = ["amount", "payee", "notes", "date"];
+const options = ["amount", "payee", "date"];
 
 export const TableHeadSelect = ({ columnIndex, selectedColumns, onChange }) => {
   const currentSelection = selectedColumns[`column_${columnIndex}`];
