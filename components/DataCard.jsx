@@ -8,7 +8,8 @@ import {
   CardTitle,
 } from "./ui/card";
 import { cn, formatCurrency, formatPercentage } from "@/lib/utils";
-import { CountUp } from "./CountUp";
+import { CountUp } from "./Counter";
+import { Skeleton } from "./ui/skeleton";
 
 const boxVariant = cva("shrink-0 rounded-md p-3", {
   variants: {
@@ -67,10 +68,36 @@ export const DataCard = ({
             end={value}
             decimals={2}
             decimalPlaces={2}
-            formatingDn={formatCurrency}
+            formattingFn={formatCurrency}
           />
         </h1>
-        <p>{formatPercentage(percentageChange)} from last period</p>
+        <p
+          className={cn(
+            "text-muted-foreground text-sm line-clamp-1",
+            percentageChange > 0 && "text-emerald-500",
+            percentageChange < 0 && "text-rose-500",
+          )}
+        >
+          {formatPercentage(percentageChange,{addPrefix:true})} from last period
+        </p>
+      </CardContent>
+    </Card>
+  );
+};
+
+export const DataCardLoading = () => {
+  return (
+    <Card className="border-none drop-shadow-sm h-48">
+      <CardHeader className="flex flex-row items-center justify-between gap-x-4">
+        <div className="space-y-2">
+          <Skeleton className="h-6 w-24" />
+          <Skeleton className="h-4 w-40" />
+        </div>
+        <Skeleton className="size-12" />
+      </CardHeader>
+      <CardContent>
+        <Skeleton className="shrink-0 h-10 w-24 mb-2" />
+        <Skeleton className="shrink-0 h-4 w-40" />
       </CardContent>
     </Card>
   );
