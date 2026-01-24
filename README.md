@@ -6,10 +6,10 @@ full-stack Finance SaaS platform built to help users gain total clarity over the
 
 ## 🚀 Key Features
 
-*   **Interactive Dashboard:** High-performance overview of net income, expenses, and account balances using dynamic Recharts (Area, Line, and Bar).
-*   **Smart CSV Uploads:** Bulk import transactions from existing bank statements using a custom-built CSV parser.
-*   **Advanced Transaction Management:** Add, edit, and categorize transactions with a powerful Shadcn/UI data table featuring multi-select and bulk actions.
-*   **Security:** Bank-grade encryption and secure authentication powered by **Clerk**.
+- **Interactive Dashboard:** High-performance overview of net income, expenses, and account balances using dynamic Recharts (Area, Line, and Bar).
+- **Smart CSV Uploads:** Bulk import transactions from existing bank statements using a custom-built CSV parser.
+- **Advanced Transaction Management:** Add, edit, and categorize transactions with a powerful Shadcn/UI data table featuring multi-select and bulk actions.
+- **Security:** Bank-grade encryption and secure authentication powered by **Clerk**.
 
 ---
 
@@ -28,18 +28,22 @@ full-stack Finance SaaS platform built to help users gain total clarity over the
 ## ⚙️ Getting Started
 
 ### 1. Clone the repository
+
 ```bash
 git clone https://github.com/rupeshpatil27/finance-dashboard-nextjs.git
 cd finance-dashboard-nextjs
 ```
 
 ### 2. Install dependencies
+
 ```bash
 npm insall
 ```
 
 ### 3. Environment Setup
+
 Create a .env.local file in the root and add your credentials:
+
 ```bash
 NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY=...
 CLERK_PUBLISHABLE_KEY=...
@@ -53,7 +57,11 @@ DATABASE_URL=...
 ### 4. Database Initialization
 
 ```bash
-npm run generate
-npm run migrate
-npm run studio
+npm run db:generate
+npm run db:migrate
+```
+
+### 5. Launch Development Server
+```bash
+npm run dev
 ```
