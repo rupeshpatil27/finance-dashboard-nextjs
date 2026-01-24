@@ -3,7 +3,7 @@ import { createId } from "@paralleldrive/cuid2";
 import { Hono } from "hono";
 import { zValidator } from "@hono/zod-validator";
 import { clerkMiddleware, getAuth } from "@hono/clerk-auth";
-import { differenceInDays, subDays } from "date-fns";
+import { differenceInDays, parse, subDays } from "date-fns";
 import { and, desc, eq, gte, lt, lte, sql, sum } from "drizzle-orm";
 
 import { db } from "@/db/drizzle";

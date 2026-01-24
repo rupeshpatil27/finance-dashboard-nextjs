@@ -38,8 +38,11 @@ export const EditCategorySheet = () => {
   const isLoading = categoryQuery.isLoading;
 
   const onSubmit = (values) => {
-    editMutation.mutate(values);
-    // onClose();
+    editMutation.mutate(values, {
+      onSuccess: () => {
+        onClose();
+      },
+    });
   };
 
   const onDelete = async () => {

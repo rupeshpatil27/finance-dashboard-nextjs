@@ -1,11 +1,12 @@
 import { Loader2 } from "lucide-react";
 import { ClerkLoaded, ClerkLoading, UserButton } from "@clerk/nextjs";
-import HeaderLogo from "./HeaderLogo";
-import Navigation from "./Navigation";
-import WelcomeMsg from "./WelcomeMsg";
+
+import { WelcomeMsg } from "./WelcomeMsg";
+import { Navigation } from "./Navigation";
+import { HeaderLogo } from "./HeaderLogo";
 import { Filters } from "./Filters";
 
-const Header = () => {
+export const Header = () => {
   return (
     <header className="bg-linear-to-b from-blue-700 to-blue-500 px-4 py-8 lg:px-14 pb-36">
       <div className="max-w-screen-2xl mx-auto">
@@ -28,5 +29,3 @@ const Header = () => {
     </header>
   );
 };
-
-export default Header;

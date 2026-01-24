@@ -8,7 +8,7 @@ import {
 import { insertAccountSchema } from "@/db/schema";
 import { useCreateAccount } from "../api/use-create-account";
 import { useNewAccount } from "../hooks/use-new-account";
-import AccountForm from "./AccountForm";
+import { AccountForm } from "./AccountForm";
 
 const formSchema = insertAccountSchema.pick({
   name: true,
@@ -20,8 +20,11 @@ export const NewAccountSheet = () => {
   const mutation = useCreateAccount();
 
   const onSubmit = (values) => {
-    mutation.mutate(values);
-    // onClose();
+    mutation.mutate(values, {
+      onSuccess: () => {
+        onClose();
+      },
+    });
   };
 
   return (

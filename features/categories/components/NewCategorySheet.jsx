@@ -23,8 +23,11 @@ export const NewCategorySheet = () => {
   const mutation = useCreateCategory();
 
   const onSubmit = (values) => {
-    mutation.mutate(values);
-    // onClose();
+    mutation.mutate(values, {
+      onSuccess: () => {
+        onClose();
+      },
+    });
   };
 
   return (

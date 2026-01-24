@@ -16,7 +16,13 @@ const formSchema = insertAccountSchema.pick({
   name: true,
 });
 
-const AccountForm = ({ id, defaultValues, onSubmit, onDelete, disabled }) => {
+export const AccountForm = ({
+  id,
+  defaultValues,
+  onSubmit,
+  onDelete,
+  disabled,
+}) => {
   const form = useForm({
     resolver: zodResolver(formSchema),
     defaultValues: defaultValues,
@@ -71,5 +77,3 @@ const AccountForm = ({ id, defaultValues, onSubmit, onDelete, disabled }) => {
     </Form>
   );
 };
-
-export default AccountForm;

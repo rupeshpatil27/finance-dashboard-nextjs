@@ -13,8 +13,9 @@ import { useGetAccount } from "../api/use-get-account";
 import { useEditAccount } from "../api/use-edit-account";
 import { useDeleteAccount } from "../api/use-delete-account";
 import { useConfirm } from "@/hooks/use-confirm";
+import { AccountForm } from "./AccountForm";
 
-import AccountForm from "./AccountForm";
+
 
 const formSchema = insertAccountSchema.pick({
   name: true,
@@ -37,8 +38,11 @@ export const EditAccountSheet = () => {
   const isLoading = accountQuery.isLoading;
 
   const onSubmit = (values) => {
-    editMutation.mutate(values);
-    // onClose();
+    editMutation.mutate(values, {
+      onSuccess: () => {
+        onClose();
+      },
+    });
   };
 
   const onDelete = async () => {

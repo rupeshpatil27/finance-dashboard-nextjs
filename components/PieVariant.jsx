@@ -37,7 +37,7 @@ export const PieVariant = ({ data }) => {
                         {entry.value}
                       </span>
                       <span className="text-sm">
-                        {formatPercentage(entry.payload.percent * 100)}
+                        {formatPercentage(entry.payload.value * 100)}
                       </span>
                     </div>
                   </li>

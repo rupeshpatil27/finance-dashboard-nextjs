@@ -2,7 +2,7 @@
 
 import { useUser } from "@clerk/nextjs";
 
-const WelcomeMsg = () => {
+export const WelcomeMsg = () => {
   const { user, isLoaded } = useUser();
   return (
     <div className="space-y-2 mb-4">
@@ -16,4 +16,3 @@ const WelcomeMsg = () => {
   );
 };
 
-export default WelcomeMsg;

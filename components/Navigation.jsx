@@ -11,7 +11,7 @@ import {
   SheetTrigger,
 } from "./ui/sheet";
 import { Button } from "./ui/button";
-import NavButton from "./NavButton";
+import { NavButton } from "./NavButton";
 
 const routes = [
   {
@@ -35,7 +35,7 @@ const routes = [
     label: "Settings",
   },
 ];
-const Navigation = () => {
+export const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   const router = useRouter();
@@ -94,4 +94,3 @@ const Navigation = () => {
   );
 };
 
-export default Navigation;
